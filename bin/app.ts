@@ -35,11 +35,11 @@ class EventBridgeUserBootstrap extends cdk.Stack {
                     actions: [
                          "events:PutEvents",
                     ],
-                    conditions: [{
+                    conditions: {
                          "StringEquals": {
                               "events:source": EVENT_SOURCE
                          }
-                    }]
+                    }
                })
           );
 
