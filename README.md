@@ -1,4 +1,4 @@
-# Serverless deploy bootstrap stack
+# EventBridge user bootstrap stack
 
 ## Introduction
 This repository contains a stack which can be deployed into an AWS account to provide an IAM user for submitting events to [AWS EventBridge](https://aws.amazon.com/eventbridge/). 
