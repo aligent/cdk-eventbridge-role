@@ -13,7 +13,7 @@ if (!EVENT_SOURCE) {
      throw Error('No EVENT_SOURCE defined');
 }
 const HYPHENATED_EVENT_SOURCE = EVENT_SOURCE.split('.').join('-');
-class EventBridgeUserBootstrap extends cdk.Stack {
+class EventBridgeIAM extends cdk.Stack {
 
      constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
           super(scope, id, props);
@@ -45,11 +45,11 @@ class EventBridgeUserBootstrap extends cdk.Stack {
 
           eventbridgeUser.addToGroup(eventbridgeGroup);
 
-          const parameterName = `/eventbridge-user-bootstrap/${HYPHENATED_EVENT_SOURCE}/version`;
+          const parameterName = `/eventbridge-user/${HYPHENATED_EVENT_SOURCE}/version`;
 
-          new ssm.StringParameter(this, 'EventBridgeUserBootstrapVersion', {
+          new ssm.StringParameter(this, 'EventBridgeIAMVersion', {
                parameterName: parameterName,
-               description: 'The version of the eventbridge-user-bootrap resources',
+               description: 'The version of the eventbridge-iam resources',
                stringValue: version
           });
      }
@@ -57,4 +57,4 @@ class EventBridgeUserBootstrap extends cdk.Stack {
 }
 
 const app = new cdk.App();
-new EventBridgeUserBootstrap(app, `eventbridge-user-bootstrap-${HYPHENATED_EVENT_SOURCE}`, { description: "This stack provisions an IAM user with privilage to post events into the default EventBride"});
+new EventBridgeIAM(app, `eventbridge-iam-${HYPHENATED_EVENT_SOURCE}`, { description: "This stack provisions an IAM user with privilage to post events into the default EventBride"});
