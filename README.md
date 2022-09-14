@@ -1,5 +1,8 @@
 # EventBridge IAM stack
 
+## Archived
+Further updates can be found here https://github.com/aligent/cdk-stacks/tree/main/packages/eventbridge-iam
+
 ## Introduction
 This repository contains a stack which can be deployed into an AWS account to provide an IAM user for submitting events to [AWS EventBridge](https://aws.amazon.com/eventbridge/). 
 
